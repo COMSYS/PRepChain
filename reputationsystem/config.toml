@@ -1,0 +1,98 @@
+#Config for the reputation system entities
+
+[Logging]
+#DEBUG, INFO, WARNING, ERROR, CRITICAL
+log_level = "INFO"
+
+[DEBUG]
+flask_debug = false
+
+[Rating]
+#rating_fields = ["sub1", "sub2", "sub3", "goodsreceipt", "temperatursaegeblatt", "schwingung", "vortrieb", "trustedgoodsreceipt", "trustedtemperatursaegeblatt", "trustedschwingung", "trustedvortrieb"]
+#rating_fields = ["sub1", "sub2", "sub3", "sub4", "sub5", "sub6", "sub7", "sub8", "sub9", "sub10", "goodsreceipt", "goodsreceipt", "goodsreceipt", "goodsreceipt", "goodsreceipt", "goodsreceipt", "goodsreceipt", "goodsreceipt", "goodsreceipt", "trustedgoodsreceipt", "trustedgoodsreceipt", "trustedgoodsreceipt", "trustedgoodsreceipt", "trustedgoodsreceipt", "trustedgoodsreceipt", "trustedgoodsreceipt", "trustedgoodsreceipt", "trustedgoodsreceipt"]
+#rating_fields = ["sub1", "sub2","sub3","sub4","sub5","sub6","sub7","sub8","sub9","sub10","sub11","sub12","sub13","sub14","sub15"]
+rating_fields = ["sub1"]
+#sub_fields = ["sub1", "sub2", "sub3"]
+#sub_fields = ["sub1", "sub2", "sub3", "sub4", "sub5", "sub6", "sub7", "sub8", "sub9", "sub10"]
+#sub_fields = ["sub1", "sub2","sub3","sub4","sub5","sub6","sub7","sub8","sub9","sub10","sub11","sub12","sub13","sub14","sub15"]
+sub_fields = ["sub1"]
+#obj_fields = ["goodsreceipt", "temperatursaegeblatt", "schwingung", "vortrieb"]
+#obj_fields = ["goodsreceipt", "goodsreceipt", "goodsreceipt", "goodsreceipt", "goodsreceipt", "goodsreceipt", "goodsreceipt", "goodsreceipt", "goodsreceipt"]
+obj_fields = []
+#tru_fields = ["trustedgoodsreceipt", "trustedtemperatursaegeblatt", "trustedschwingung", "trustedvortrieb"]
+#tru_fields = ["trustedgoodsreceipt", "trustedgoodsreceipt", "trustedgoodsreceipt", "trustedgoodsreceipt", "trustedgoodsreceipt", "trustedgoodsreceipt", "trustedgoodsreceipt", "trustedgoodsreceipt", "trustedgoodsreceipt"]
+tru_fields = []
+rating_weights = [0.5,0.8,1]
+eq_classes_num = 3
+#eq_classes = [[1,4],[4,7],[7,10]]
+eq_classes = [[0,3.33],[3.33,6.66],[6.66,10]]
+sub_num = 1
+sub_upperbound = 10
+sub_lowerbound = 1
+obj_num = 0
+tru_num = 0
+
+[Evaldata]
+type_temperatursaegeblatt = [21.01, 23.87]
+type_schwingung = [0.08, 0.14]
+type_vortrieb = [-37.5, 150]
+type_goodsreceipt = 'diff'
+type_trustedtemperatursaegeblatt = [21.01, 23.87]
+type_trustedschwingung = [0.08, 0.14]
+type_trustedvortrieb = [-37.5, 150]
+type_trustedgoodsreceipt = 'diff'
+
+[PseudonymManager]
+
+db_host = "localhost"
+db_port = 27017
+db = "reputation_system"
+collection = "pseudonym_manager"
+flask_debug = true
+flask_port = 5003
+
+[ReputationEngine]
+
+db_host = "localhost"
+db_port = 27017
+db = "reputation_system"
+collection = "reputation_engine"
+flask_debug = true
+flask_port = 5002
+id = "1"
+pseudonym = "R0000"
+
+[ReputationManager]
+
+db_host = "localhost"
+db_port = 27017
+db = "reputation_system"
+collection = "reputation_manager"
+flask_debug = true
+flask_port = 5005
+rating_limit = 3
+
+[KeyManager]
+
+db_host = "localhost"
+db_port = 27017
+db = "reputation_system"
+collection = "key_manager"
+flask_debug = true
+flask_port = 5004
+
+[Votee]
+
+db_host = "localhost"
+db_port = 27017
+db = "reputation_system"
+collection = "votee"
+flask_debug = true
+flask_port = 5001
+allowed_rep_engines = ["1"]
+csv_file = "objdata.csv"
+json_file = "objdata.json"
+
+[VerificationEngine]
+flask_debug = true
+flask_port = 5006
