@@ -13,6 +13,10 @@ You should have received a copy of the GNU General Public License along with thi
 
 If you are planning to integrate parts of our work into a commercial product and do not want to disclose your source code, please contact us for other licensing options via email at pennekamp (at) comsys (dot) rwth-aachen (dot) de
 
+## Acknowledgments
+
+Funded by the Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) under Germany's Excellence Strategy – EXC-2023 Internet of Production – 390621612.
+
 # Installation
 
 ## Prerequisites
